@@ -12,14 +12,16 @@ export default {
 </script>
 
 <template lang="">
+    <div class="container">
     <div class="row">
            <div class="col-20 ">
-        <select class="">
+        <select @change="$emit('filter_cards')" v-model="store.archetype_search">
             <option value="">Seleziona Archetipo</option>
                 <option :value="archetype.archetype_name" v-for="archetype,index in store.archetypesList">{{archetype.archetype_name}}</option>
         
                 </select>
             </div>
+    </div>
     </div>
 </template>
 

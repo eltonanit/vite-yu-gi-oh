@@ -22,13 +22,21 @@ export default {
     },
     
     methods:{
+          
         getCards(){
-            axios.get(store.apiUrl).then((response) => {
+            if( store.archetype_search !== '') {   
+            axios.get(`${store.apiUrl}&archetype=${store.archetype_search}`).then((response) => {
                 store.CardList = response.data.data;
                 store.loading = false;
-
+                 });
+                }
+            else { 
+                axios.get(store.apiUrl).then((response) => {
+                store.CardList = response.data.data;
+                store.loading = false;
             });
-        },
+            }
+         },
         getArchetypes (){
             axios.get(store.apiArchetypesUrl).then((response) => {
                
@@ -46,7 +54,7 @@ export default {
 
 <template lang="">
     <div class="row">
-        <FilterCards />
+          <FilterCards  @filter-cards="getCards()"/>
         <div class="row"> 
 
             <DetailCard v-for="card in store.CardList"  :key="card.id" :card="card"  />
