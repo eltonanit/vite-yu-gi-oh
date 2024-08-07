@@ -13,7 +13,8 @@ export default {
 
         }
     },created() {
-        this.getCards()
+        this.getCards();
+        this.getArchetypes();
         
     },
     
@@ -21,6 +22,13 @@ export default {
         getCards(){
             axios.get(store.apiUrl).then((response) => {
                 store.CardList = response.data.data;
+                store.loading = false;
+
+            });
+        },
+        getArchetypes (){
+            axios.get(store.apiArchetypesUrl).then((response) => {
+                console.log (response.data); 
 
             });
         }
