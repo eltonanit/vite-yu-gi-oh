@@ -1,6 +1,9 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import CardList from './components/CardList.vue';
+
+
+
 export default {
   components:{
     AppHeader, CardList
@@ -11,6 +14,8 @@ export default {
 
 <template lang="">
   <AppHeader />
+  
+  
   <CardList />
 
 </template>

@@ -2,9 +2,12 @@
 import axios from 'axios';
 import { store } from '../store.js';
 import DetailCard from './DetailCard.vue';
+import FilterCards from './FilterCards.vue';
+
 export default {
     components:{
-        DetailCard
+        DetailCard,
+        FilterCards
     },
 
     data () {
@@ -28,7 +31,10 @@ export default {
         },
         getArchetypes (){
             axios.get(store.apiArchetypesUrl).then((response) => {
-                console.log (response.data); 
+               
+                for(let i=0; i<10; i++) {
+                    store.archetypesList.push(response.data[i]);
+                }               
 
             });
         }
@@ -39,7 +45,8 @@ export default {
 </script>
 
 <template lang="">
-    <div class="container">
+    <div class="row">
+        <FilterCards />
         <div class="row"> 
 
             <DetailCard v-for="card in store.CardList"  :key="card.id" :card="card"  />
