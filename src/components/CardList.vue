@@ -21,8 +21,7 @@ export default {
         
     },
     
-    methods:{
-          
+    methods:{          
         getCards(){
             if( store.archetype_search !== '') {   
             axios.get(`${store.apiUrl}&archetype=${store.archetype_search}`).then((response) => {
@@ -54,7 +53,7 @@ export default {
 
 <template lang="">
     <div class="row">
-          <FilterCards  @filter-cards="getCards()"/>
+          <FilterCards  @filter-cards="getCards"/>
         <div class="row"> 
 
             <DetailCard v-for="card in store.CardList"  :key="card.id" :card="card"  />
