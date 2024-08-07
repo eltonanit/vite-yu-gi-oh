@@ -44,16 +44,19 @@ export default {
                 }               
 
             });
-        }
+        }, logMessage() {
+      console.log('getcards');
+    }
 
     }
     
-}
+} 
 </script>
 
 <template lang="">
     <div class="row">
-          <FilterCards  @filter-cards="getCards"/>
+          <FilterCards  @filter-cards="getCards"@click="getCards"/>
+          
         <div class="row"> 
 
             <DetailCard v-for="card in store.CardList"  :key="card.id" :card="card"  />
