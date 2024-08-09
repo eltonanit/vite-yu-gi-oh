@@ -45,17 +45,23 @@ export default {
 
             });
         }, logMessage() {
-      console.log('getcards');
+     
+        
     }
 
     }
     
 } 
+
+console.log('getcards');
+console.log('getArchetypes');
+
+
 </script>
 
 <template lang="">
     <div class="row">
-          <FilterCards  @filter-cards="getCards"@click="getCards"/>
+          <FilterCards  @filter-cards="getCards"/>
           
         <div class="row"> 
 
